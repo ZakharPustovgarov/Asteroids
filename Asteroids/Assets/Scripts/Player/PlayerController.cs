@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviour, IDamagable
 {
     //Положение
     Transform m_transform;
@@ -77,6 +77,19 @@ public class PlayerController : MonoBehaviour
         {
             m_rigidbody.AddForce(new Vector2(0, m_vertical * speedModifier));
         }
+    }
+
+    public void TakeDamage(string damageType)
+    {
+        if(damageType == "Asteroid" || damageType == "UFO")
+        {
+            Die();
+        }
+    }
+
+    void Die()
+    {
+
     }
 }
 
