@@ -24,8 +24,12 @@ public class PlayerController : MonoBehaviour, IDamagable
     KeyCode m_rotateRigth = KeyCode.E;
     KeyCode m_rotateLeft = KeyCode.Q;
 
-    KeyCode m_fireBullets = KeyCode.UpArrow;
-    KeyCode m_fireLaser = KeyCode.DownArrow;
+    KeyCode m_fireBullets = KeyCode.Keypad1;
+    KeyCode m_fireLaser = KeyCode.Keypad2;
+
+    //Стрельба
+    [SerializeField]
+    PlayersGun gun;
 
     // Start is called before the first frame update
     void Start()
@@ -54,13 +58,13 @@ public class PlayerController : MonoBehaviour, IDamagable
                 this.transform.Rotate(0, 0, -m_rotateModifier * Time.deltaTime);
             }
 
-            if (Input.GetKeyDown(m_fireBullets))
+            if (Input.GetKey(m_fireBullets))
             {
-
+                gun.Fire(1);
             }
             if (Input.GetKeyDown(m_fireLaser))
             {
-
+                gun.Fire(2);
             }
 
             Move();
