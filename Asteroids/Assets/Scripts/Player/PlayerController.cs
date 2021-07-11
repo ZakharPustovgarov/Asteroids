@@ -93,7 +93,7 @@ public class PlayerController : MonoBehaviour, IDamagable
 
     void Die()
     {
-
+        UnityEngine.Debug.Log("Player is dead...");
     }
 }
 

@@ -41,6 +41,7 @@ GameObject:
   - component: {fileID: 1699382789}
   - component: {fileID: 1699382790}
   - component: {fileID: 1699382791}
+  - component: {fileID: 1169672253}
   m_Layer: 0
   m_Name: Gun
   m_TagString: Untagged
@@ -128,13 +129,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_firePoint: {fileID: 1460535853}
-  m_fireDirection: {fileID: 0}
+  m_fireDirection: {fileID: 1745618189608079656}
   m_ship: {fileID: 7757103644357606918}
   m_laserPrefab: {fileID: 4245915200996434966, guid: 9c5fb599c896bd34db45e19725a35738, type: 3}
   m_bulletPrefab: {fileID: 5422989300673844411, guid: 071e81ddc4a793e428f55838be2808eb, type: 3}
   m_bulletSpeed: 280
   m_bulletCooldown: 0.2
   laserExparationTime: 4
+--- !u!70 &1169672253
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1699382788}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.0000000037252903, y: 0.000000014901161}
+  m_Size: {x: 1.0000001, y: 1}
+  m_Direction: 0
 --- !u!1 &5657436803986209179
 GameObject:
   m_ObjectHideFlags: 0
@@ -180,7 +197,7 @@ GameObject:
   - component: {fileID: 7757103644357606923}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -194,7 +211,7 @@ Transform:
   m_GameObject: {fileID: 7757103644357606912}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.02, y: -0.0047242, z: 0}
-  m_LocalScale: {x: 0.30381823, y: 0.30381823, z: 0.30381823}
+  m_LocalScale: {x: 0.18229094, y: 0.18229094, z: 0.18229094}
   m_Children:
   - {fileID: 1699382789}
   m_Father: {fileID: 0}

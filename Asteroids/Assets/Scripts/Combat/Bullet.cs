@@ -14,7 +14,7 @@ public class Bullet : DoDamage
         StartCoroutine("SelfDestroy");
     }
 
-    protected override void Damage(Collider enemy)
+    protected override void Damage(Collider2D enemy)
     {
         base.Damage(enemy);
         GameObject.Destroy(this.gameObject);
