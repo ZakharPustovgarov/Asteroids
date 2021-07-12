@@ -30,9 +30,9 @@ public class BigAsteroid : SmallAsteroid
 
                 asteroid.ChangeDestination(directions[directionNumber]);
             }
-        }     
+        }
 
-        GameObject.Destroy(this.gameObject);
+        base.TakeDamage(damageType);
     }
 
     int FindFreeDirection(List<int> occupiedDirections)

@@ -100,6 +100,7 @@ MonoBehaviour:
   m_damageType: UFO
   tagsToDamage: []
   destination: {fileID: 0}
+  score: 15
   speed: 0.8
 --- !u!50 &8971406403932036110
 Rigidbody2D:

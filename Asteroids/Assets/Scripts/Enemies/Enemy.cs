@@ -25,6 +25,8 @@ public abstract class Enemy : DoDamage, IDamagable
     // Метод получения урона
     public virtual void TakeDamage(string damageType)
     {
+        GameManager.Instance.AddScore(score);
+
         GameObject.Destroy(this.gameObject);
     }
 }

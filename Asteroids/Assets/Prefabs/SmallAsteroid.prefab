@@ -173,5 +173,5 @@ MonoBehaviour:
   m_damageType: 
   tagsToDamage: []
   destination: {fileID: 0}
-  score: 10
+  score: 18
   speed: 14

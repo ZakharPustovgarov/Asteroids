@@ -577,7 +577,7 @@ MonoBehaviour:
   tagsToDamage: []
   destination: {fileID: 0}
   score: 10
-  speed: 10
+  speed: 12
   directions:
   - {fileID: 7152036835078556907}
   - {fileID: 2847543690574987842}
