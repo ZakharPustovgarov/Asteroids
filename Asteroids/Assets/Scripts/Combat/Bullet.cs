@@ -6,7 +6,7 @@ public class Bullet : DoDamage
 {
     void Awake()
     {
-        m_damageType = "Bullet";
+        damageType = "Bullet";
     }
 
     void OnEnable()

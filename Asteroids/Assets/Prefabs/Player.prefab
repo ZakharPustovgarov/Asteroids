@@ -128,13 +128,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a8817cf336906a4f88bf3843b0475cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_firePoint: {fileID: 1460535853}
-  m_fireDirection: {fileID: 1745618189608079656}
-  m_ship: {fileID: 7757103644357606918}
-  m_laserPrefab: {fileID: 4245915200996434966, guid: 9c5fb599c896bd34db45e19725a35738, type: 3}
-  m_bulletPrefab: {fileID: 5422989300673844411, guid: 071e81ddc4a793e428f55838be2808eb, type: 3}
-  m_bulletSpeed: 280
-  m_bulletCooldown: 0.2
+  firePoint: {fileID: 1460535853}
+  fireDirection: {fileID: 1745618189608079656}
+  ship: {fileID: 7757103644357606918}
+  laserPrefab: {fileID: 4245915200996434966, guid: 9c5fb599c896bd34db45e19725a35738, type: 3}
+  bulletPrefab: {fileID: 5422989300673844411, guid: 071e81ddc4a793e428f55838be2808eb, type: 3}
+  bulletSpeed: 120
+  bulletCooldown: 0.2
   laserExparationTime: 4
 --- !u!70 &1169672253
 CapsuleCollider2D:
@@ -329,6 +329,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a85534419d6b70244a0ae42ebdb65fbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_rotateModifier: 140
+  rotateModifier: 80
   speedModifier: 0.2
   gun: {fileID: 1699382791}

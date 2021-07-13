@@ -5,49 +5,53 @@ using UnityEngine;
 public class PlayersGun : MonoBehaviour
 {
     [SerializeField]
-    Transform m_firePoint;
+    Transform firePoint;
     [SerializeField]
-    Transform m_fireDirection;
+    Transform fireDirection;
     [SerializeField]
-    Transform m_ship;
+    Transform ship;
 
     [SerializeField]
-    GameObject m_laserPrefab;
+    GameObject laserPrefab;
     [SerializeField]
-    GameObject m_bulletPrefab;
-    public float m_bulletSpeed = 8f;
-    public float m_bulletCooldown = 0.2f;
+    GameObject bulletPrefab;
+    public float bulletSpeed = 8f;
+    public float bulletCooldown = 0.2f;
 
     public float laserExparationTime = 4f;
-    float m_timer = 0f;
+    float timer = 0f;
     bool isShootingLaser = false;
+
+    PlayerManager playerManager;
 
     void Start()
     {
+        playerManager = PlayerManager.Instance;
+
         isShootingLaser = false;
     }
 
     void Update()
     {
-        if(m_timer > 0)
+        if(timer > 0)
         {
-            m_timer -= Time.deltaTime;
+            timer -= Time.deltaTime;
         }
     }
 
     public void Fire(int fireMode)
     {
-        if(fireMode == 1 && m_timer <= 0 && isShootingLaser == false)
+        if(fireMode == 1 && timer <= 0 && isShootingLaser == false)
         {
-            Bullet bullet = GameObject.Instantiate(m_bulletPrefab, m_firePoint.transform.position, m_firePoint.transform.rotation).GetComponent<Bullet>();
+            Bullet bullet = GameObject.Instantiate(bulletPrefab, firePoint.transform.position, firePoint.transform.rotation).GetComponent<Bullet>();
 
-            Vector2 vec = m_fireDirection.position - m_firePoint.position;
+            Vector2 vec = fireDirection.position - firePoint.position;
 
-            bullet.GetComponent<Rigidbody2D>().AddForce(vec * m_bulletSpeed);
+            bullet.GetComponent<Rigidbody2D>().AddForce(vec * bulletSpeed);
 
-            m_timer = m_bulletCooldown;
+            timer = bulletCooldown;
         }
-        else if(fireMode == 2 && isShootingLaser == false)
+        else if(fireMode == 2 && isShootingLaser == false && playerManager.laserCount > 0)
         {
             StartCoroutine("CreateLaser");
         }
@@ -57,7 +61,9 @@ public class PlayersGun : MonoBehaviour
     {
         isShootingLaser = true;
 
-        GameObject laser = GameObject.Instantiate(m_laserPrefab, m_firePoint);     
+        playerManager.LaserUsed();
+
+        GameObject laser = GameObject.Instantiate(laserPrefab, firePoint);     
 
         yield return new WaitForSeconds(laserExparationTime);
 

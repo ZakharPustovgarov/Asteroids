@@ -9,6 +9,8 @@ public class UFO : Enemy
     {
         base.Start();
 
+        damageType = "UFO";
+
         destination = GameObject.FindWithTag("Player").transform;        
     }
 

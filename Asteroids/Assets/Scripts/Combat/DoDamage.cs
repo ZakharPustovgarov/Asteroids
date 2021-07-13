@@ -6,7 +6,7 @@ public class DoDamage : MonoBehaviour
 {
     // Тип урона
     [SerializeField]
-    protected string m_damageType = "";
+    protected string damageType = "";
 
     // Тэги объектов, которым будет нанесён урон
     public List<string> tagsToDamage;
@@ -26,7 +26,7 @@ public class DoDamage : MonoBehaviour
     // Нанесение урона соответсвующим типом
     protected virtual void Damage(Collider2D enemy)
     {
-        enemy.GetComponent<IDamagable>().TakeDamage(m_damageType);
+        enemy.GetComponent<IDamagable>().TakeDamage(damageType);
     }
 
     // Функция на проверку тэга

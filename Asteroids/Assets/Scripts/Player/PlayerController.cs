@@ -5,27 +5,26 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour, IDamagable
 {
     //Положение
-    Transform m_transform;
-    float m_rotate;
-    public float m_rotateModifier = 1.0f;
+    float rotate;
+    public float rotateModifier = 1.0f;
 
     //Передвижение
     public float speedModifier = 3.0f;
-    float m_vertical = 0f, m_horizontal = 0f;
-    Rigidbody2D m_rigidbody;
+    float vertical = 0f, horizontal = 0f;
+    Rigidbody2D rigidbody;
 
-    private bool m_isDead;
+    private bool isDead;
 
     //Настройка клавиш
-    KeyCode m_strafeLeft = KeyCode.A;
-    KeyCode m_strafeRight = KeyCode.D;
-    KeyCode m_forward = KeyCode.W;
-    KeyCode m_backward = KeyCode.S;
-    KeyCode m_rotateRigth = KeyCode.E;
-    KeyCode m_rotateLeft = KeyCode.Q;
+    KeyCode strafeLeft = KeyCode.A;
+    KeyCode strafeRight = KeyCode.D;
+    KeyCode forward = KeyCode.W;
+    KeyCode backward = KeyCode.S;
+    KeyCode rotateRigth = KeyCode.E;
+    KeyCode rotateLeft = KeyCode.Q;
 
-    KeyCode m_fireBullets = KeyCode.Keypad1;
-    KeyCode m_fireLaser = KeyCode.Keypad2;
+    KeyCode fireBullets = KeyCode.Keypad1;
+    KeyCode fireLaser = KeyCode.Keypad2;
 
     //Стрельба
     [SerializeField]
@@ -34,35 +33,33 @@ public class PlayerController : MonoBehaviour, IDamagable
     // Start is called before the first frame update
     void Start()
     {
-        m_isDead = false;
+        isDead = false;
 
-        m_transform = this.transform;
-
-        m_rigidbody = this.GetComponent<Rigidbody2D>();
+        rigidbody = this.GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(m_isDead != true)
+        if(isDead != true)
         {
-            m_horizontal = Input.GetAxis("Horizontal");
-            m_vertical = Input.GetAxis("Vertical");
+            horizontal = Input.GetAxis("Horizontal");
+            vertical = Input.GetAxis("Vertical");
 
-            if (Input.GetKey(m_rotateLeft))
+            if (Input.GetKey(rotateLeft))
             {
-                this.transform.Rotate(0, 0, m_rotateModifier * Time.deltaTime);
+                this.transform.Rotate(0, 0, rotateModifier * Time.deltaTime);
             }
-            if (Input.GetKey(m_rotateRigth))
+            if (Input.GetKey(rotateRigth))
             {
-                this.transform.Rotate(0, 0, -m_rotateModifier * Time.deltaTime);
+                this.transform.Rotate(0, 0, -rotateModifier * Time.deltaTime);
             }
 
-            if (Input.GetKey(m_fireBullets))
+            if (Input.GetKey(fireBullets))
             {
                 gun.Fire(1);
             }
-            if (Input.GetKeyDown(m_fireLaser))
+            if (Input.GetKeyDown(fireLaser))
             {
                 gun.Fire(2);
             }
@@ -73,13 +70,13 @@ public class PlayerController : MonoBehaviour, IDamagable
 
     void Move()
     {
-        if(m_horizontal != 0)
+        if(horizontal != 0)
         {
-            m_rigidbody.AddForce(new Vector2(m_horizontal * speedModifier, 0));
+            rigidbody.AddForce(new Vector2(horizontal * speedModifier, 0));
         }
-        if (m_vertical != 0)
+        if (vertical != 0)
         {
-            m_rigidbody.AddForce(new Vector2(0, m_vertical * speedModifier));
+            rigidbody.AddForce(new Vector2(0, vertical * speedModifier));
         }
     }
 
@@ -93,6 +90,10 @@ public class PlayerController : MonoBehaviour, IDamagable
 
     void Die()
     {
+        isDead = true;
+
+        PlayerManager.Instance.OnDeath();
+
         UnityEngine.Debug.Log("Player is dead...");
     }
 }

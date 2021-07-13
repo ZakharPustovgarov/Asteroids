@@ -12,7 +12,7 @@ public class SmallAsteroid : Enemy
     {
         rigidbody = this.GetComponent<Rigidbody2D>();
 
-        m_damageType = "Asteroid";
+        damageType = "Asteroid";
 
         destination = FindDestination();
 

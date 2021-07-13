@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoSingleton<GameManager>
 {
@@ -14,7 +15,7 @@ public class GameManager : MonoSingleton<GameManager>
     [SerializeField]
     Text scoreText;
 
-    bool isPlayerAlive;
+    public bool isPlayerAlive;
 
     [SerializeField]
     GameObject bigAsteroidPrefab, ufoPrefab;
@@ -88,5 +89,10 @@ public class GameManager : MonoSingleton<GameManager>
         previousSpawnNumber = spawnNumber;
 
         return spawnPoints[spawnNumber];
+    }
+
+    public void Restart()
+    {
+        SceneManager.LoadScene("Game");
     }
 }
