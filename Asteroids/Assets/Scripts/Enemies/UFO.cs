@@ -5,7 +5,7 @@ using UnityEngine;
 public class UFO : Enemy
 {
     // ¬ качестве направлени€ движени€ указываетс€ игрок
-    void Start()
+    protected override void Start()
     {
         base.Start();
 

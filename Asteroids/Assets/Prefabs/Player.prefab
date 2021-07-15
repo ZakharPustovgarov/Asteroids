@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 1699382789}
   - component: {fileID: 1699382790}
   - component: {fileID: 1699382791}
-  - component: {fileID: 1169672253}
+  - component: {fileID: 2118298692845104834}
   m_Layer: 0
   m_Name: Gun
   m_TagString: Untagged
@@ -57,8 +57,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1699382788}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.02, y: 0.73, z: 0}
-  m_LocalScale: {x: 0.32075518, y: 3.2075517, z: 3.2075517}
+  m_LocalPosition: {x: 0.02, y: 0.518, z: 0}
+  m_LocalScale: {x: 0.17575547, y: 0.59022355, z: 1.0492864}
   m_Children:
   - {fileID: 1460535853}
   - {fileID: 1745618189608079656}
@@ -105,7 +105,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: dc892654d0674ba43929b6498cf7a59e, type: 3}
   m_Color: {r: 0.745283, g: 0.745283, b: 0.745283, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -131,12 +131,15 @@ MonoBehaviour:
   firePoint: {fileID: 1460535853}
   fireDirection: {fileID: 1745618189608079656}
   ship: {fileID: 7757103644357606918}
-  laserPrefab: {fileID: 4245915200996434966, guid: 9c5fb599c896bd34db45e19725a35738, type: 3}
-  bulletPrefab: {fileID: 5422989300673844411, guid: 071e81ddc4a793e428f55838be2808eb, type: 3}
-  bulletSpeed: 120
-  bulletCooldown: 0.2
+  laserPolyPrefab: {fileID: 4245915200996434966, guid: 9c5fb599c896bd34db45e19725a35738, type: 3}
+  laserSpritePrefab: {fileID: 6945162708500278049, guid: 376a9f42d0c025545901b28bd01378f8, type: 3}
+  bulletPolyPrefab: {fileID: 5422989300673844411, guid: 071e81ddc4a793e428f55838be2808eb, type: 3}
+  bulletSpritePrefab: {fileID: 2236346218826704239, guid: b746d163257aa734ea83f14f5d34aa02, type: 3}
+  bulletSpeed: 500
+  bulletCooldown: 0.3
   laserExparationTime: 4
---- !u!70 &1169672253
+  otherSprite: {fileID: 21300000, guid: 6e6c627a7ec1bec46a5d1c0e256da2aa, type: 3}
+--- !u!70 &2118298692845104834
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -149,8 +152,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0000000037252903, y: 0.000000014901161}
-  m_Size: {x: 1.0000001, y: 1}
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 0.6, y: 1.4000001}
   m_Direction: 0
 --- !u!1 &5657436803986209179
 GameObject:
@@ -211,7 +214,7 @@ Transform:
   m_GameObject: {fileID: 7757103644357606912}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.02, y: -0.0047242, z: 0}
-  m_LocalScale: {x: 0.18229094, y: 0.18229094, z: 0.18229094}
+  m_LocalScale: {x: 0.38194925, y: 0.38194925, z: 0.38194925}
   m_Children:
   - {fileID: 1699382789}
   m_Father: {fileID: 0}
@@ -257,12 +260,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: f670fe26dbe979847940e5fe3046d6f8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: bbf1f71ff621038498376e5e58c2bccc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2.68, y: 4.05}
+  m_Size: {x: 1.5, y: 1.7}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -285,17 +288,17 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.68, y: 4.05}
-    newSize: {x: 2.68, y: 4.05}
+    oldSize: {x: 1.5, y: 1.7}
+    newSize: {x: 1.5, y: 1.7}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 1.1553563, y: -1.879723}
-      - {x: 0.022798473, y: 1.6790197}
-      - {x: -1.1233033, y: -1.869035}
+    - - {x: 0.77805835, y: -0.77141035}
+      - {x: 0.021360943, y: 0.8310965}
+      - {x: -0.7538657, y: -0.7685828}
 --- !u!50 &7757103644357606916
 Rigidbody2D:
   serializedVersion: 4
@@ -332,3 +335,4 @@ MonoBehaviour:
   rotateModifier: 80
   speedModifier: 0.2
   gun: {fileID: 1699382791}
+  otherSprite: {fileID: 21300000, guid: aad658c3cede227498e3622e488e8b27, type: 3}

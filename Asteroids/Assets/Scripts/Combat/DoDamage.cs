@@ -11,6 +11,28 @@ public class DoDamage : MonoBehaviour
     // Тэги объектов, которым будет нанесён урон
     public List<string> tagsToDamage;
 
+    // Спрайт для спрайтового отображения
+    [SerializeField]
+    public Sprite otherSprite;
+
+    //[SerializeField]
+    //GameObject polyPrefab;
+
+    //[SerializeField]
+    //GameObject spritePrefab;
+
+    SpriteRenderer spriteRenderer;
+
+    protected virtual void Awake()
+    {
+        UnityEngine.Debug.Log("Trying to get renderer");
+
+        spriteRenderer = this.GetComponent<SpriteRenderer>();
+
+        if(spriteRenderer != null) UnityEngine.Debug.Log(this.name + " has renderer");
+        else UnityEngine.Debug.Log(this.name + " has NO renderer");
+    }
+
     // Проверка тега при входе в триггер
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -38,5 +60,14 @@ public class DoDamage : MonoBehaviour
         }
 
         return false;
+    }
+
+    public virtual void ReplaceSprite()
+    {
+        Sprite buf = spriteRenderer.sprite;
+
+        spriteRenderer.sprite = otherSprite;
+
+        otherSprite = buf;
     }
 }

@@ -4,38 +4,53 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour, IDamagable
 {
-    //Положение
+    // Положение
     float rotate;
     public float rotateModifier = 1.0f;
 
-    //Передвижение
+    // Передвижение
     public float speedModifier = 3.0f;
     float vertical = 0f, horizontal = 0f;
     Rigidbody2D rigidbody;
 
+    // Жив ли игрок?
     private bool isDead;
 
     //Настройка клавиш
-    KeyCode strafeLeft = KeyCode.A;
-    KeyCode strafeRight = KeyCode.D;
-    KeyCode forward = KeyCode.W;
-    KeyCode backward = KeyCode.S;
+    //KeyCode strafeLeft = KeyCode.A;
+    //KeyCode strafeRight = KeyCode.D;
+    //KeyCode forward = KeyCode.W;
+    //KeyCode backward = KeyCode.S;
     KeyCode rotateRigth = KeyCode.E;
     KeyCode rotateLeft = KeyCode.Q;
+    KeyCode changeVisual = KeyCode.V;
 
     KeyCode fireBullets = KeyCode.Keypad1;
     KeyCode fireLaser = KeyCode.Keypad2;
 
-    //Стрельба
+    // Класс стрельбы
     [SerializeField]
     PlayersGun gun;
+
+    // Спрайт для спрайтового отображения
+    [SerializeField]
+    Sprite otherSprite;
+
+    SpriteRenderer shipSprite;
+    SpriteRenderer gunSprite;
 
     // Start is called before the first frame update
     void Start()
     {
+        shipSprite = GetComponent<SpriteRenderer>();
+
+        gunSprite = gun.GetComponent<SpriteRenderer>();
+
         isDead = false;
 
         rigidbody = this.GetComponent<Rigidbody2D>();
+
+        if (GameManager.Instance.Visualization == true) ChangeSprite();
     }
 
     // Update is called once per frame
@@ -62,6 +77,11 @@ public class PlayerController : MonoBehaviour, IDamagable
             if (Input.GetKeyDown(fireLaser))
             {
                 gun.Fire(2);
+            }
+         
+            if (Input.GetKeyDown(changeVisual))
+            {
+                ChangeSprite();
             }
 
             Move();
@@ -95,6 +115,23 @@ public class PlayerController : MonoBehaviour, IDamagable
         PlayerManager.Instance.OnDeath();
 
         UnityEngine.Debug.Log("Player is dead...");
+    }
+
+    public void ChangeSprite()
+    {
+        Sprite buf = shipSprite.sprite;
+
+        shipSprite.sprite = otherSprite;
+
+        otherSprite = buf;
+
+        buf = gunSprite.sprite;
+
+        gunSprite.sprite = gun.otherSprite;
+
+        gun.otherSprite = buf;
+
+        GameManager.Instance.ChangeVisualization();     
     }
 }
 

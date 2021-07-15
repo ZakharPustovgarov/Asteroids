@@ -15,6 +15,9 @@ public class PlayerManager : MonoSingleton<PlayerManager>
 
     PlayerController player;
 
+    public PlayerController Player
+    { get { return player; } }
+
     bool isPlayerAlive;
 
     public int laserCount, maxLaserCount = 4;
@@ -27,11 +30,11 @@ public class PlayerManager : MonoSingleton<PlayerManager>
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
+
         isRecharging = false;
 
-        isPlayerAlive = true;
-
-        player = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
+        isPlayerAlive = true;   
 
         laserCount = maxLaserCount;
     }

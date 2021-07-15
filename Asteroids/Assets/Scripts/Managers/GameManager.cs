@@ -18,12 +18,17 @@ public class GameManager : MonoSingleton<GameManager>
     public bool isPlayerAlive;
 
     [SerializeField]
-    GameObject bigAsteroidPrefab, ufoPrefab;
+    GameObject bigAsteroidPolyPrefab, ufoPolyPrefab, bigAsteroidSpritePrefab, ufoSpritePrefab;
 
     [SerializeField]
     float asteroidSpawnTimer, ufoSpawnTimer;
 
     int previousSpawnNumber = -1;
+
+    bool visualization;
+
+    public bool Visualization
+    { get { return visualization; } }
 
     void OnTriggerExit2D(Collider2D other)
     {
@@ -49,7 +54,9 @@ public class GameManager : MonoSingleton<GameManager>
         {
             Transform spawn = FindSpawnPoint();
 
-            GameObject.Instantiate(bigAsteroidPrefab, spawn.position, spawn.rotation);
+            if (visualization == false) GameObject.Instantiate(bigAsteroidPolyPrefab, spawn.position, spawn.rotation);          
+            else GameObject.Instantiate(bigAsteroidSpritePrefab, spawn.position, spawn.rotation);
+
 
             yield return new WaitForSeconds(ufoSpawnTimer);
         }      
@@ -61,7 +68,8 @@ public class GameManager : MonoSingleton<GameManager>
         {
             Transform spawn = FindSpawnPoint();
 
-            GameObject.Instantiate(ufoPrefab, spawn.position, spawn.rotation);
+            if (visualization == false)  GameObject.Instantiate(ufoPolyPrefab, spawn.position, spawn.rotation);
+            else GameObject.Instantiate(ufoSpritePrefab, spawn.position, spawn.rotation);
 
             yield return new WaitForSeconds(asteroidSpawnTimer);
         }
@@ -94,5 +102,33 @@ public class GameManager : MonoSingleton<GameManager>
     public void Restart()
     {
         SceneManager.LoadScene("Game");
+    }
+
+    public void ChangeVisualization()
+    {
+        visualization = !visualization;
+
+        var damagingObjects = FindObjectsOfType<DoDamage>();    
+
+        if(damagingObjects != null)
+        {
+            UnityEngine.Debug.Log(damagingObjects.Length);
+
+            foreach (var obj in damagingObjects)
+            {
+                obj.ReplaceSprite();
+            }
+        }
+
+        //var enemyObjects = FindObjectsOfType<Enemy>();
+
+        //if (enemyObjects != null)
+        //{
+        //    Unity
+        //    foreach (var obj in enemyObjects)
+        //    {
+        //        obj.ReplaceSprite();
+        //    }
+        //}
     }
 }

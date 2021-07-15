@@ -12,9 +12,9 @@ public class PlayersGun : MonoBehaviour
     Transform ship;
 
     [SerializeField]
-    GameObject laserPrefab;
+    GameObject laserPolyPrefab, laserSpritePrefab;
     [SerializeField]
-    GameObject bulletPrefab;
+    GameObject bulletPolyPrefab, bulletSpritePrefab;
     public float bulletSpeed = 8f;
     public float bulletCooldown = 0.2f;
 
@@ -24,9 +24,16 @@ public class PlayersGun : MonoBehaviour
 
     PlayerManager playerManager;
 
+    GameManager gameManager;
+
+    [SerializeField]
+    public Sprite otherSprite;
+
     void Start()
     {
         playerManager = PlayerManager.Instance;
+
+        gameManager = GameManager.Instance;
 
         isShootingLaser = false;
     }
@@ -43,7 +50,9 @@ public class PlayersGun : MonoBehaviour
     {
         if(fireMode == 1 && timer <= 0 && isShootingLaser == false)
         {
-            Bullet bullet = GameObject.Instantiate(bulletPrefab, firePoint.transform.position, firePoint.transform.rotation).GetComponent<Bullet>();
+            Bullet bullet;
+            if(gameManager.Visualization == false) bullet = GameObject.Instantiate(bulletPolyPrefab, firePoint.transform.position, firePoint.transform.rotation).GetComponent<Bullet>();
+            else bullet = GameObject.Instantiate(bulletSpritePrefab, firePoint.transform.position, firePoint.transform.rotation).GetComponent<Bullet>();
 
             Vector2 vec = fireDirection.position - firePoint.position;
 
@@ -63,7 +72,10 @@ public class PlayersGun : MonoBehaviour
 
         playerManager.LaserUsed();
 
-        GameObject laser = GameObject.Instantiate(laserPrefab, firePoint);     
+        GameObject laser;
+
+        if (gameManager.Visualization == false) laser = GameObject.Instantiate(laserPolyPrefab, firePoint);
+        else laser = GameObject.Instantiate(laserSpritePrefab, firePoint);
 
         yield return new WaitForSeconds(laserExparationTime);
 

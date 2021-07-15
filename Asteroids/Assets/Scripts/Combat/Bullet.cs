@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class Bullet : DoDamage
 {
-    void Awake()
-    {
-        damageType = "Bullet";
-    }
+    [SerializeField]
+    float selfDestroyTime = 5f;
 
     void OnEnable()
     {
+        damageType = "Bullet";
+
         StartCoroutine("SelfDestroy");
     }
 
@@ -22,7 +22,8 @@ public class Bullet : DoDamage
 
     IEnumerator SelfDestroy()
     {
-        yield return new WaitForSeconds(4f);
+        yield return new WaitForSeconds(selfDestroyTime);
+
         GameObject.Destroy(this.gameObject);
     }
 }
