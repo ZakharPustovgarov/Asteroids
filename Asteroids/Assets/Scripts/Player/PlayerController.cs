@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Класс управления кораблём
 public class PlayerController : MonoBehaviour, IDamagable
 {
     // Положение
@@ -32,9 +33,14 @@ public class PlayerController : MonoBehaviour, IDamagable
     [SerializeField]
     PlayersGun gun;
 
-    // Спрайт для спрайтового отображения
+    // Спрайт для другого типа отображения
     [SerializeField]
     Sprite otherSprite;
+
+    // События, оповещающие о смерти игрока или смене спрайтов
+    public delegate void PlayerHandler();
+    public event PlayerHandler OnDeath;
+    public event PlayerHandler OnSpriteChange;
 
     SpriteRenderer shipSprite;
     SpriteRenderer gunSprite;
@@ -50,10 +56,10 @@ public class PlayerController : MonoBehaviour, IDamagable
 
         rigidbody = this.GetComponent<Rigidbody2D>();
 
-        if (GameManager.Instance.Visualization == true) ChangeSprite();
+        if (GameManager.Instance.Visualization == true) ChangeSprite();// Если режим отображение изначально изменён, происходит смена спрайтов
     }
 
-    // Update is called once per frame
+    // Отслеживаем ввод клавиш и вызываем соответсвующие функции
     void Update()
     {
         if(isDead != true)
@@ -88,6 +94,7 @@ public class PlayerController : MonoBehaviour, IDamagable
         }
     }
 
+    // Функция движения, которая добавляет силу в зависимости от значений осей движения
     void Move()
     {
         if(horizontal != 0)
@@ -100,6 +107,8 @@ public class PlayerController : MonoBehaviour, IDamagable
         }
     }
 
+
+    // Функция получения урона. Если урон нанёс НЛО или астероид - вызывается функция серти
     public void TakeDamage(string damageType)
     {
         if(damageType == "Asteroid" || damageType == "UFO")
@@ -108,15 +117,17 @@ public class PlayerController : MonoBehaviour, IDamagable
         }
     }
 
+    // Функция смерти
     void Die()
     {
         isDead = true;
 
-        PlayerManager.Instance.OnDeath();
+        if(OnDeath != null) OnDeath();
 
         UnityEngine.Debug.Log("Player is dead...");
     }
 
+    // Функция смены спрайта у корабля и его оружия. Также вызывает функция смены спрайта у всех остальных объектов через менеджера игры
     public void ChangeSprite()
     {
         Sprite buf = shipSprite.sprite;
@@ -131,7 +142,7 @@ public class PlayerController : MonoBehaviour, IDamagable
 
         gun.otherSprite = buf;
 
-        GameManager.Instance.ChangeVisualization();     
+        if (OnSpriteChange != null) OnSpriteChange();
     }
 }
 

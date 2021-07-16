@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Класс НЛО
 public class UFO : Enemy
 {
     // В качестве направления движения указывается игрок

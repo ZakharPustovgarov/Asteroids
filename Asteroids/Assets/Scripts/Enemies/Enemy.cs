@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Родительский класс для классов врагов
 public abstract class Enemy : DoDamage, IDamagable
 {
     // Направление движения
     [SerializeField]
     protected Transform destination;
 
+    // Счёт, который начислаяется за уничтожение врага
     public int score = 10;
 
     // Скорость движения

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//  ласс, €вл€ющим€ родительским дл€ всех объектов, которые нужно сделать синглтонами
 public abstract class MonoSingleton<T> : MonoBehaviour where T : MonoSingleton<T>
 {
     private static T _instance;

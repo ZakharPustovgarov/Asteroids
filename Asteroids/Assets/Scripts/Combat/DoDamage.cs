@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Родительский класс для любых объектов, которые наносят урон
 public class DoDamage : MonoBehaviour
 {
     // Тип урона
@@ -11,36 +12,22 @@ public class DoDamage : MonoBehaviour
     // Тэги объектов, которым будет нанесён урон
     public List<string> tagsToDamage;
 
-    // Спрайт для спрайтового отображения
+    // Спрайт для другого типа отображения
     [SerializeField]
     public Sprite otherSprite;
-
-    //[SerializeField]
-    //GameObject polyPrefab;
-
-    //[SerializeField]
-    //GameObject spritePrefab;
 
     SpriteRenderer spriteRenderer;
 
     protected virtual void Awake()
     {
-        UnityEngine.Debug.Log("Trying to get renderer");
-
         spriteRenderer = this.GetComponent<SpriteRenderer>();
-
-        if(spriteRenderer != null) UnityEngine.Debug.Log(this.name + " has renderer");
-        else UnityEngine.Debug.Log(this.name + " has NO renderer");
     }
 
-    // Проверка тега при входе в триггер
+    // Проверка тэга соприкоснувшегося объекта
     void OnTriggerEnter2D(Collider2D other)
     {
-        UnityEngine.Debug.Log(this.name + " is collided with " + other.name);
-
         if (TagCheck(other.tag))
         {
-            UnityEngine.Debug.Log(this.name + " is damaging " + other.name);
             Damage(other);
         }
     }
@@ -51,7 +38,7 @@ public class DoDamage : MonoBehaviour
         enemy.GetComponent<IDamagable>().TakeDamage(damageType);
     }
 
-    // Функция на проверку тэга
+    // Функция на проверку наличия тэга в tagsToDamage
     protected bool TagCheck(string otherTag)
     {
         foreach(string tag in tagsToDamage)
@@ -62,6 +49,7 @@ public class DoDamage : MonoBehaviour
         return false;
     }
 
+    // Функция для смены спрайта
     public virtual void ReplaceSprite()
     {
         Sprite buf = spriteRenderer.sprite;
