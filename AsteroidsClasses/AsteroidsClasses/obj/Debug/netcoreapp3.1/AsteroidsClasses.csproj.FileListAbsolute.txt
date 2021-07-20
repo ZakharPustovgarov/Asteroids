@@ -1,0 +1,12 @@
+D:\Unity_projs\AsteroidsClasses\AsteroidsClasses\obj\Debug\netcoreapp3.1\AsteroidsClasses.csproj.AssemblyReference.cache
+D:\Unity_projs\AsteroidsClasses\AsteroidsClasses\obj\Debug\netcoreapp3.1\AsteroidsClasses.AssemblyInfoInputs.cache
+D:\Unity_projs\AsteroidsClasses\AsteroidsClasses\obj\Debug\netcoreapp3.1\AsteroidsClasses.AssemblyInfo.cs
+D:\Unity_projs\AsteroidsClasses\AsteroidsClasses\obj\Debug\netcoreapp3.1\AsteroidsClasses.csproj.CoreCompileInputs.cache
+D:\Unity_projs\AsteroidsClasses\AsteroidsClasses\bin\Debug\netcoreapp3.1\AsteroidsClasses.deps.json
+D:\Unity_projs\AsteroidsClasses\AsteroidsClasses\bin\Debug\netcoreapp3.1\AsteroidsClasses.dll
+D:\Unity_projs\AsteroidsClasses\AsteroidsClasses\bin\Debug\netcoreapp3.1\AsteroidsClasses.pdb
+D:\Unity_projs\AsteroidsClasses\AsteroidsClasses\bin\Debug\netcoreapp3.1\UnityEngine.dll
+D:\Unity_projs\AsteroidsClasses\AsteroidsClasses\bin\Debug\netcoreapp3.1\UnityEngine.UI.dll
+D:\Unity_projs\AsteroidsClasses\AsteroidsClasses\obj\Debug\netcoreapp3.1\AsteroidsClasses.csproj.CopyComplete
+D:\Unity_projs\AsteroidsClasses\AsteroidsClasses\obj\Debug\netcoreapp3.1\AsteroidsClasses.dll
+D:\Unity_projs\AsteroidsClasses\AsteroidsClasses\obj\Debug\netcoreapp3.1\AsteroidsClasses.pdb
