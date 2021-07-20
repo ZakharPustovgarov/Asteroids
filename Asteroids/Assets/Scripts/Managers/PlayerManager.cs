@@ -54,7 +54,7 @@ public class PlayerManager : MonoSingleton<PlayerManager>
     }
 
     // Функция, которая проигрывает анимация появления экрана смерти, а также даёт понять менджеру игры, что игорк умер
-    public void OnDeath()
+    void OnDeath()
     {
         if (isPlayerAlive == true)
         {

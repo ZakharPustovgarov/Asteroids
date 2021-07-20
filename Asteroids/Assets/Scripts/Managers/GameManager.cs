@@ -146,7 +146,7 @@ public class GameManager : MonoSingleton<GameManager>
     }
 
     // Функция для смены спрайтов 
-    public void ChangeVisualization()
+    void ChangeVisualization()
     {
         visualization = !visualization;
 
