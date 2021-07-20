@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3981795077084063621}
   - component: {fileID: 3981795077084063622}
-  - component: {fileID: 3981795077084063619}
   - component: {fileID: 3981795077084063618}
   - component: {fileID: 4086377938705867599}
+  - component: {fileID: 605456687944460364}
   m_Layer: 0
   m_Name: UFO_sprite
   m_TagString: Enemy
@@ -85,24 +85,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &3981795077084063619
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3981795077084063623}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1da4e2802d0a9fe448455be54666a29c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damageType: 
-  tagsToDamage: []
-  otherSprite: {fileID: 21300000, guid: 8ea8cb3ef46273249a20f4a6a28cc77d, type: 3}
-  destination: {fileID: 0}
-  score: 15
-  speed: 0.8
 --- !u!50 &3981795077084063618
 Rigidbody2D:
   serializedVersion: 4
@@ -183,3 +165,21 @@ PolygonCollider2D:
       - {x: 0.065, y: -0.45999998}
       - {x: 0.295, y: -0.29999998}
       - {x: 0.36499998, y: -0.26}
+--- !u!114 &605456687944460364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3981795077084063623}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -39528176, guid: 8ce669598e6ecb94d9376c2f786ad6cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageType: 
+  tagsToDamage: []
+  otherSprite: {fileID: 21300000, guid: 8ea8cb3ef46273249a20f4a6a28cc77d, type: 3}
+  destination: {fileID: 0}
+  score: 10
+  speed: 0.8

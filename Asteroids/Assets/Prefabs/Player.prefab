@@ -40,8 +40,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1699382789}
   - component: {fileID: 1699382790}
-  - component: {fileID: 1699382791}
   - component: {fileID: 2118298692845104834}
+  - component: {fileID: 2263509481330985171}
   m_Layer: 0
   m_Name: Gun
   m_TagString: Untagged
@@ -116,29 +116,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1699382791
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1699382788}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a8817cf336906a4f88bf3843b0475cc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  firePoint: {fileID: 1460535853}
-  fireDirection: {fileID: 1745618189608079656}
-  ship: {fileID: 7757103644357606918}
-  laserPolyPrefab: {fileID: 4245915200996434966, guid: 9c5fb599c896bd34db45e19725a35738, type: 3}
-  laserSpritePrefab: {fileID: 6945162708500278049, guid: 376a9f42d0c025545901b28bd01378f8, type: 3}
-  bulletPolyPrefab: {fileID: 5422989300673844411, guid: 071e81ddc4a793e428f55838be2808eb, type: 3}
-  bulletSpritePrefab: {fileID: 2236346218826704239, guid: b746d163257aa734ea83f14f5d34aa02, type: 3}
-  bulletSpeed: 500
-  bulletCooldown: 0.3
-  laserExparationTime: 4
-  otherSprite: {fileID: 21300000, guid: 6e6c627a7ec1bec46a5d1c0e256da2aa, type: 3}
 --- !u!70 &2118298692845104834
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -155,6 +132,29 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 0.6, y: 1.4000001}
   m_Direction: 0
+--- !u!114 &2263509481330985171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1699382788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1840771788, guid: 8ce669598e6ecb94d9376c2f786ad6cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firePoint: {fileID: 1460535853}
+  fireDirection: {fileID: 1745618189608079656}
+  ship: {fileID: 7757103644357606918}
+  laserPolyPrefab: {fileID: 4245915200996434966, guid: 9c5fb599c896bd34db45e19725a35738, type: 3}
+  laserSpritePrefab: {fileID: 6945162708500278049, guid: 376a9f42d0c025545901b28bd01378f8, type: 3}
+  bulletPolyPrefab: {fileID: 5422989300673844411, guid: 071e81ddc4a793e428f55838be2808eb, type: 3}
+  bulletSpritePrefab: {fileID: 2236346218826704239, guid: b746d163257aa734ea83f14f5d34aa02, type: 3}
+  bulletSpeed: 600
+  bulletCooldown: 0.3
+  laserExparationTime: 4
+  otherSprite: {fileID: 21300000, guid: 6e6c627a7ec1bec46a5d1c0e256da2aa, type: 3}
 --- !u!1 &5657436803986209179
 GameObject:
   m_ObjectHideFlags: 0
@@ -197,7 +197,7 @@ GameObject:
   - component: {fileID: 3333566053192543636}
   - component: {fileID: 7757103644357606919}
   - component: {fileID: 7757103644357606916}
-  - component: {fileID: 7757103644357606923}
+  - component: {fileID: 7620495811296964855}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -320,7 +320,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &7757103644357606923
+--- !u!114 &7620495811296964855
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -329,10 +329,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 7757103644357606912}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a85534419d6b70244a0ae42ebdb65fbc, type: 3}
+  m_Script: {fileID: 961855446, guid: 8ce669598e6ecb94d9376c2f786ad6cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateModifier: 80
-  speedModifier: 0.2
-  gun: {fileID: 1699382791}
+  rotateModifier: 100
+  speedModifier: 0.8
+  gun: {fileID: 2263509481330985171}
   otherSprite: {fileID: 21300000, guid: aad658c3cede227498e3622e488e8b27, type: 3}

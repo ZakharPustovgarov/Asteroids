@@ -311,8 +311,8 @@ GameObject:
   - component: {fileID: 7623636264330461580}
   - component: {fileID: 7623636264330461571}
   - component: {fileID: 7623636264330461582}
-  - component: {fileID: 1645846862446659940}
   - component: {fileID: 2759185197309316438}
+  - component: {fileID: 5788850217291632955}
   m_Layer: 0
   m_Name: BigAsteroid_sprite
   m_TagString: Enemy
@@ -419,40 +419,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &1645846862446659940
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7623636264330461570}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bdd7116e25cb2ce4aaf2f6b07cbce41f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damageType: 
-  tagsToDamage: []
-  otherSprite: {fileID: 21300000, guid: 17ad06fe73c1d5645bd2f599f4a8cf31, type: 3}
-  polyPrefab: {fileID: 0}
-  spritePrefab: {fileID: 0}
-  destination: {fileID: 0}
-  score: 10
-  speed: 12
-  directions:
-  - {fileID: 8472989004632134239}
-  - {fileID: 3554387830763347190}
-  - {fileID: 1199314834074543131}
-  - {fileID: 589414843361093730}
-  - {fileID: 3412124594932155118}
-  - {fileID: 8455671635269045836}
-  - {fileID: 9008627434266191634}
-  - {fileID: 4726130824038785346}
-  - {fileID: 1984026745635884925}
-  - {fileID: 3379246940688980146}
-  - {fileID: 6951591636920399602}
-  - {fileID: 3678787816132486928}
-  smallAsteroidPrefab: {fileID: 113674296611307134, guid: ab2b202cce83ed240b75f69cbdb75db5, type: 3}
 --- !u!60 &2759185197309316438
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -494,6 +460,39 @@ PolygonCollider2D:
       - {x: 0.37, y: -0.56}
       - {x: 0.53999996, y: -0.25}
       - {x: 0.65, y: -0.04}
+--- !u!114 &5788850217291632955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7623636264330461570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1265755628, guid: 8ce669598e6ecb94d9376c2f786ad6cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageType: 
+  tagsToDamage: []
+  otherSprite: {fileID: 21300000, guid: 17ad06fe73c1d5645bd2f599f4a8cf31, type: 3}
+  destination: {fileID: 0}
+  score: 10
+  speed: 5
+  directions:
+  - {fileID: 8472989004632134239}
+  - {fileID: 3554387830763347190}
+  - {fileID: 1199314834074543131}
+  - {fileID: 589414843361093730}
+  - {fileID: 3412124594932155118}
+  - {fileID: 8455671635269045836}
+  - {fileID: 9008627434266191634}
+  - {fileID: 4726130824038785346}
+  - {fileID: 1984026745635884925}
+  - {fileID: 3379246940688980146}
+  - {fileID: 6951591636920399602}
+  - {fileID: 3678787816132486928}
+  smallAsteroidPolyPrefab: {fileID: 1839292130337137070, guid: 62693db8ce4d99b449b1318ca8110bf4, type: 3}
+  smallAsteroidSpritePrefab: {fileID: 113674296611307134, guid: ab2b202cce83ed240b75f69cbdb75db5, type: 3}
 --- !u!1 &8366790619829006258
 GameObject:
   m_ObjectHideFlags: 0
